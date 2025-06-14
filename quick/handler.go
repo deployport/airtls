@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/deployport/airtls/caching"
-	https "github.com/deployport/airtls/http"
+	"github.com/deployport/airtls/https"
 	"github.com/deployport/airtls/selfsigned"
 )
 
