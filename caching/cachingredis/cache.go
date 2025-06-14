@@ -27,8 +27,8 @@ func WithPrefix(prefix string) RedisCacheOption {
 	}
 }
 
-// NewRedisCache creates a new RedisCache with the given Redis client and options.
-func NewRedisCache(client *redis.Client, opts ...RedisCacheOption) *RedisCache {
+// New creates a new RedisCache with the given Redis client and options.
+func New(client *redis.Client, opts ...RedisCacheOption) *RedisCache {
 	cache := &RedisCache{
 		client: client,
 		prefix: "airtls:",
