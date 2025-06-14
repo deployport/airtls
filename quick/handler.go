@@ -4,9 +4,9 @@ import (
 	"context"
 	"net/http"
 
+	"github.com/deployport/airtls/caching"
 	https "github.com/deployport/airtls/http"
 	"github.com/deployport/airtls/selfsigned"
-	"github.com/deployport/airtls/store"
 )
 
 // ServeHTTPS starts an HTTPS server that uses an auto-signed certificate generator
@@ -26,7 +26,7 @@ func ServeHTTPS(
 	return https.ServeHTTPS(
 		ctx,
 		selfsigned.NewGenerator(),
-		store.NewMemoryStore(),
+		caching.NewMemoryStore(),
 		laddr,
 		handler,
 	)

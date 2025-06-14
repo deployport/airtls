@@ -1,8 +1,10 @@
-package store
+package caching
 
 import (
 	"crypto/tls"
 	"sync"
+
+	"github.com/deployport/airtls/store"
 )
 
 // MemoryStore is a concurrent in-memory implementation of Store
@@ -52,7 +54,7 @@ func (m *MemoryStore) GetCertificate(serverName string) (*tls.Certificate, error
 	defer m.mu.RUnlock()
 	cert, ok := m.certs[serverName]
 	if !ok {
-		return nil, NewCertificateNotFoundError()
+		return nil, store.NewCertificateNotFoundError()
 	}
 	return cert, nil
 }
